@@ -6,7 +6,17 @@ mergeable:
           count: 2
           message: 'Custom message...'
         required:
-          reviews: [LewisNie]
-          owners: true
+          reviewers: [LewisNie]
           assignees: true
           message: 'Custom message...'
+      - do: description
+        no_empty:
+          enabled: true
+          message: 'description cannot be empty'
+        must_include:
+          regex: '### Goals| ### Changes'
+          message: >
+            please describe the goal (why) and changes (what) of the PR.
+        must_exclude:
+          regex: 'DO NOT MERGE'
+          message: 'this is do not merge customer message'
