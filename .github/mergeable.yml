@@ -1,0 +1,12 @@
+mergeable:
+  - when: pull_request.*
+    validate:
+      - do: approvals
+        min:
+          count: 2
+          message: 'Custom message...'
+        required:
+          reviews: [LewisNie]
+          owners: true
+          assignees: true
+          message: 'Custom message...'
